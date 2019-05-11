@@ -1,0 +1,35 @@
+import java.util.Scanner;
+
+public class Enigma
+{
+	public static void main(String []args)
+	{
+		char [] pB = new char [26];
+		pB = plugBoard(pB);
+  }
+
+public static char[] plugBoard(char [] message)
+	{
+		Scanner keyboard = new Scanner(System.in);
+		char pBLetter = 'a';
+		boolean pbError = true;
+		for(int i=0;i<message.length;i++)
+		{
+			int j =0;
+			pBLetter = (char)('a'+ i);
+			System.out.println("Which letter connects to " + pBLetter + "?");
+			message[i] = keyboard.next().charAt(0);
+
+			while(j<i)
+			{
+				while (message[i]==message[j])
+				{
+					System.out.println("Letters can only be connected to one other letter or not at all. Which letter connects to " + pBLetter + "?");
+					message[i] = keyboard.next().charAt(0);
+				}
+				j++;
+			}
+		}
+
+		return message;
+	}
