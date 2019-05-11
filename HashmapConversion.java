@@ -202,6 +202,34 @@ public class HashmapConversion {
 	Alphabet.put("X", 5);
 	Alphabet.put("Y", 3);
 	Alphabet.put("Z", 11);
+	  
+	  HashMap<String, Integer> ReflectorUKWC = new HashMap<String, Integer>();
+    Alphabet.put("A", 6);
+    Alphabet.put("B", 22);
+    Alphabet.put("C", 16);
+	Alphabet.put("D", 10);
+	Alphabet.put("E", 9);
+	Alphabet.put("F", 1);
+	Alphabet.put("G", 15);
+	Alphabet.put("H", 25);
+	Alphabet.put("I", 5);
+	Alphabet.put("J", 4);
+	Alphabet.put("K", 18);
+	Alphabet.put("L", 26);
+	Alphabet.put("M", 24);
+	Alphabet.put("N", 23);
+	Alphabet.put("O", 7);
+	Alphabet.put("P", 3);
+	Alphabet.put("Q", 20);
+	Alphabet.put("R", 11);
+	Alphabet.put("S", 21);
+	Alphabet.put("T", 17);
+	Alphabet.put("U", 19);
+	Alphabet.put("V", 2);
+	Alphabet.put("W", 14);
+	Alphabet.put("X", 13);
+	Alphabet.put("Y", 8);
+	Alphabet.put("Z", 12);
 	
   }
 }
