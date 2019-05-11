@@ -5,7 +5,7 @@ public class initialMessage
 	public static void main (String[] args)
 	{
 		String[] inMessArr = new String[]; //inMessArr = initial Message array
-		in.length = 
+		inMessArr.length = 
 		
 		while(true){
 			
