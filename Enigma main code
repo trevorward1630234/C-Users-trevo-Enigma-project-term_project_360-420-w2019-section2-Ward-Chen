@@ -1,0 +1,98 @@
+import java.util.*;
+import java.util.Scanner;
+
+public class Enigma
+{
+	public static void main(String []args)
+	{
+		Scanner keyboard = new Scanner(System.in);
+		String message;
+		char letter;
+		char lampBoard;
+		Rotors lets = new Rotors();
+		char [] pB = new char [26];
+		int value;
+
+		pB = plugBoard(pB);
+
+		System.out.println("Enter message to be coded.");
+		message = keyboard.nextLine();
+
+		char [] msm = new char[message.length()];
+		msm = codedMessage(message,msm);
+
+		for (int i =0;i<msm.length;i++)
+		{
+			letter = message.charAt(i);		
+			letter = pB[alphabet(letter)-1];
+			value = lets.rotor1(letter);
+			letter = alphabetInv(value);
+			value = lets.rotor2(letter);
+			letter = alphabetInv(value);
+			value = lets.rotor3(letter);
+			letter = alphabetInv(value);
+			value = lets.reflectorUKWC(letter);
+			letter = alphabetInv(value);
+			value = lets.rotor3Inverse(letter);
+			letter = alphabetInv(value);
+			value = lets.rotor2Inverse(letter);
+			letter = alphabetInv(value);
+			value = lets.rotor1Inverse(letter);
+			letter = alphabetInv(value);
+			lampBoard = pB[alphabet(letter)-1];
+			System.out.print(lampBoard);
+		}
+
+		
+	}
+
+	public static char[] plugBoard(char [] message)
+	{
+		Scanner keyboard = new Scanner(System.in);
+		char pBLetter = 'A';
+		boolean pbError = true;
+		for(int i=0;i<message.length;i++)
+		{
+			int j =0;
+			pBLetter = (char)('A'+ i);
+			System.out.println("Which letter connects to " + pBLetter + "?");
+			message[i] = keyboard.next().charAt(0);
+
+			while(j<i)
+			{
+				while (message[i]==message[j])
+				{
+					System.out.println("Letters can only be connected to one other letter or not at all. Which letter connects to " + pBLetter + "?");
+					message[i] = keyboard.next().charAt(0);
+				}
+				j++;
+			}
+		}
+
+		return message;
+	}
+
+	public static char[] codedMessage(String message, char[] msm)
+	{
+		for(int i=0;i<msm.length;i++)
+		{
+			msm[i] = message.charAt(i); 
+		}
+
+		return msm;
+	}
+
+	public static char alphabetInv(int value)
+	{
+		Rotors invert = new Rotors();
+		char letter = invert.alphabetInv(value);
+		return letter;
+	}
+
+	public static int alphabet(char letter)
+	{
+		Rotors lett = new Rotors();
+		int value = lett.alphabet(letter);
+		return value;
+	}
+}
